@@ -4,476 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Moderno</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            color: #333;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        /* Hero Section */
-        .hero {
-            text-align: center;
-            color: white;
-            padding: 80px 0;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            font-weight: 700;
-        }
-
-        .hero .highlight {
-            color: #fbbf24;
-        }
-
-        .hero p {
-            font-size: 1.25rem;
-            margin-bottom: 30px;
-            opacity: 0.9;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 12px 24px;
-            background: white;
-            color: #3b82f6;
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
-        }
-
-        .btn:hover {
-            background: #f3f4f6;
-            transform: translateY(-2px);
-        }
-
-        .btn-primary {
-            background: #fbbf24;
-            color: #1e40af;
-            padding: 16px 32px;
-            font-size: 1.25rem;
-            font-weight: 700;
-        }
-
-        .btn-primary:hover {
-            background: #f59e0b;
-        }
-
-        /* Cards */
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin: 60px 0;
-        }
-
-        .card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 16px;
-            padding: 30px;
-            text-align: center;
-            color: white;
-            transition: transform 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-        }
-
-        .card-icon {
-            width: 48px;
-            height: 48px;
-            margin-bottom: 16px;
-        }
-
-        .card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 12px;
-            font-weight: 600;
-        }
-
-        .card p {
-            opacity: 0.9;
-            line-height: 1.6;
-        }
-
-        /* Dashboard Styles */
-        .dashboard {
-            background: linear-gradient(135deg, #f0f9ff 0%, #e0e7ff 100%);
-            min-height: 100vh;
-            padding: 40px 20px;
-        }
-
-        .dashboard-header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .dashboard-header h1 {
-            font-size: 2.5rem;
-            color: #1f2937;
-            margin-bottom: 10px;
-        }
-
-        .dashboard-header p {
-            color: #6b7280;
-            font-size: 1.125rem;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-bottom: 40px;
-        }
-
-        .stat-card {
-            background: white;
-            border-radius: 12px;
-            padding: 24px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-            transition: box-shadow 0.3s ease;
-        }
-
-        .stat-card:hover {
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-        }
-
-        .stat-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 16px;
-        }
-
-        .stat-title {
-            font-size: 0.875rem;
-            color: #6b7280;
-            font-weight: 500;
-        }
-
-        .stat-icon {
-            width: 20px;
-            height: 20px;
-            color: #3b82f6;
-        }
-
-        .stat-value {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #1f2937;
-            margin-bottom: 8px;
-        }
-
-        .stat-change {
-            display: flex;
-            align-items: center;
-            font-size: 0.875rem;
-        }
-
-        .stat-change.up {
-            color: #10b981;
-        }
-
-        .stat-change.down {
-            color: #ef4444;
-        }
-
-        .arrow-up {
-            width: 16px;
-            height: 16px;
-            margin-right: 4px;
-        }
-
-        .arrow-down {
-            width: 16px;
-            height: 16px;
-            margin-right: 4px;
-        }
-
-        .charts-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 20px;
-            margin-bottom: 40px;
-        }
-
-        .chart-card {
-            background: white;
-            border-radius: 12px;
-            padding: 24px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-        }
-
-        .chart-header {
-            margin-bottom: 20px;
-        }
-
-        .chart-title {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: #1f2937;
-            margin-bottom: 8px;
-        }
-
-        .chart-description {
-            color: #6b7280;
-            font-size: 0.875rem;
-        }
-
-        .chart-container {
-            height: 300px;
-            position: relative;
-        }
-
-        .bar-chart, .line-chart {
-            display: flex;
-            align-items: end;
-            justify-content: space-around;
-            height: 250px;
-            padding: 20px 0;
-        }
-
-        .bar {
-            width: 40px;
-            background: #8b5cf6;
-            border-radius: 4px 4px 0 0;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .bar:hover {
-            background: #7c3aed;
-            transform: scale(1.05);
-        }
-
-        .bar.revenue {
-            background: #10b981;
-        }
-
-        .bar.revenue:hover {
-            background: #059669;
-        }
-
-        .bar-label {
-            position: absolute;
-            bottom: -25px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 0.75rem;
-            color: #6b7280;
-        }
-
-        .line-chart {
-            position: relative;
-        }
-
-        .line {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: #8b5cf6;
-        }
-
-        .line-point {
-            position: absolute;
-            width: 8px;
-            height: 8px;
-            background: #8b5cf6;
-            border-radius: 50%;
-            top: -4px;
-            transform: translateX(-50%);
-        }
-
-        .pie-chart-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 200px;
-        }
-
-        .pie-chart {
-            width: 160px;
-            height: 160px;
-            border-radius: 50%;
-            background: conic-gradient(
-                #8b5cf6 0deg 144deg,
-                #10b981 144deg 252deg,
-                #f59e0b 252deg 360deg
-            );
-            position: relative;
-        }
-
-        .pie-center {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 80px;
-            height: 80px;
-            background: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 600;
-            color: #1f2937;
-        }
-
-        .actions-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 16px;
-            margin-bottom: 24px;
-        }
-
-        .action-btn {
-            height: 80px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            background: #3b82f6;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-        }
-
-        .action-btn:hover {
-            background: #2563eb;
-            transform: translateY(-2px);
-        }
-
-        .action-btn.outline {
-            background: white;
-            color: #3b82f6;
-            border: 2px solid #e5e7eb;
-        }
-
-        .action-btn.outline:hover {
-            background: #f9fafb;
-            border-color: #3b82f6;
-        }
-
-        .action-icon {
-            width: 24px;
-            height: 24px;
-            margin-bottom: 8px;
-        }
-
-        .action-text {
-            font-size: 0.875rem;
-            font-weight: 500;
-        }
-
-        .status-card {
-            background: #f0fdf4;
-            border: 1px solid #bbf7d0;
-            border-radius: 8px;
-            padding: 16px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .status-info h3 {
-            font-weight: 600;
-            color: #166534;
-            margin-bottom: 4px;
-        }
-
-        .status-info p {
-            color: #15803d;
-            font-size: 0.875rem;
-        }
-
-        .status-badge {
-            background: #bbf7d0;
-            color: #166534;
-            padding: 4px 12px;
-            border-radius: 9999px;
-            font-size: 0.75rem;
-            font-weight: 600;
-        }
-
-        .made-with-dyad {
-            text-align: center;
-            margin-top: 60px;
-            padding: 20px;
-        }
-
-        .made-with-dyad a {
-            color: #6b7280;
-            text-decoration: none;
-            font-size: 0.875rem;
-            transition: color 0.3s ease;
-        }
-
-        .made-with-dyad a:hover {
-            color: #374151;
-        }
-
-        .hidden {
-            display: none;
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            .charts-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .stats-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <!-- Página Inicial -->
     <div id="home-page">
-        <div class="hero">
+        <header class="hero">
             <div class="container">
                 <h1>Bem-vindo ao seu <span class="highlight">Dashboard</span></h1>
                 <p>Visualize suas métricas, analise dados e tome decisões estratégicas com nossa plataforma moderna e intuitiva</p>
-                <button class="btn btn-primary" onclick="showDashboard()">Acessar Dashboard</button>
+                <button class="btn btn-primary" onclick="Navigation.showDashboard()">Acessar Dashboard</button>
             </div>
-        </div>
+        </header>
 
-        <div class="container">
-            <div class="features">
+        <main class="container">
+            <section class="features">
                 <div class="card">
                     <svg class="card-icon" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/>
@@ -497,31 +42,31 @@
                     <h3>Performance em Tempo Real</h3>
                     <p>Monitoramento instantâneo de métricas e alertas inteligentes</p>
                 </div>
-            </div>
+            </section>
 
             <div class="text-center">
-                <button class="btn btn-primary" onclick="showDashboard()">Começar Agora</button>
+                <button class="btn btn-primary" onclick="Navigation.showDashboard()">Começar Agora</button>
             </div>
-        </div>
+        </main>
 
-        <div class="made-with-dyad">
+        <footer class="made-with-dyad">
             <div class="container">
                 <a href="https://www.dyad.sh/" target="_blank" rel="noopener noreferrer">Made with Dyad</a>
             </div>
-        </div>
+        </footer>
     </div>
 
     <!-- Dashboard -->
     <div id="dashboard-page" class="hidden">
         <div class="dashboard">
             <div class="container">
-                <div class="dashboard-header">
+                <header class="dashboard-header">
                     <h1>Dashboard</h1>
                     <p>Visão geral do seu negócio em tempo real</p>
-                </div>
+                </header>
 
                 <!-- Cards de Estatísticas -->
-                <div class="stats-grid">
+                <section class="stats-grid">
                     <div class="stat-card">
                         <div class="stat-header">
                             <div class="stat-title">Total de Vendas</div>
@@ -585,10 +130,10 @@
                             +0.8% vs mês anterior
                         </div>
                     </div>
-                </div>
+                </section>
 
                 <!-- Gráficos -->
-                <div class="charts-grid">
+                <section class="charts-grid">
                     <div class="chart-card">
                         <div class="chart-header">
                             <div class="chart-title">Vendas e Receita</div>
@@ -596,24 +141,12 @@
                         </div>
                         <div class="chart-container">
                             <div class="bar-chart">
-                                <div class="bar" style="height: 160px;">
-                                    <div class="bar-label">Jan</div>
-                                </div>
-                                <div class="bar" style="height: 120px;">
-                                    <div class="bar-label">Feb</div>
-                                </div>
-                                <div class="bar" style="height: 80px;">
-                                    <div class="bar-label">Mar</div>
-                                </div>
-                                <div class="bar" style="height: 111px;">
-                                    <div class="bar-label">Apr</div>
-                                </div>
-                                <div class="bar" style="height: 76px;">
-                                    <div class="bar-label">May</div>
-                                </div>
-                                <div class="bar" style="height: 96px;">
-                                    <div class="bar-label">Jun</div>
-                                </div>
+                                <div class="bar" data-height="160" data-label="Jan"></div>
+                                <div class="bar" data-height="120" data-label="Feb"></div>
+                                <div class="bar" data-height="80" data-label="Mar"></div>
+                                <div class="bar" data-height="111" data-label="Apr"></div>
+                                <div class="bar" data-height="76" data-label="May"></div>
+                                <div class="bar" data-height="96" data-label="Jun"></div>
                             </div>
                         </div>
                     </div>
@@ -626,19 +159,19 @@
                         <div class="chart-container">
                             <div class="line-chart">
                                 <div class="line"></div>
-                                <div class="line-point" style="left: 16.67%; bottom: 160px;"></div>
-                                <div class="line-point" style="left: 33.33%; bottom: 120px;"></div>
-                                <div class="line-point" style="left: 50%; bottom: 80px;"></div>
-                                <div class="line-point" style="left: 66.67%; bottom: 111px;"></div>
-                                <div class="line-point" style="left: 83.33%; bottom: 76px;"></div>
-                                <div class="line-point" style="left: 100%; bottom: 96px;"></div>
+                                <div class="line-point" data-x="16.67" data-y="160"></div>
+                                <div class="line-point" data-x="33.33" data-y="120"></div>
+                                <div class="line-point" data-x="50" data-y="80"></div>
+                                <div class="line-point" data-x="66.67" data-y="111"></div>
+                                <div class="line-point" data-x="83.33" data-y="76"></div>
+                                <div class="line-point" data-x="100" data-y="96"></div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </section>
 
                 <!-- Gráfico de Pizza e Ações -->
-                <div class="charts-grid">
+                <section class="charts-grid">
                     <div class="chart-card">
                         <div class="chart-header">
                             <div class="chart-title">Distribuição de Tráfego</div>
@@ -657,25 +190,25 @@
                             <div class="chart-description">Acesso rápido às principais funcionalidades</div>
                         </div>
                         <div class="actions-grid">
-                            <button class="action-btn">
+                            <button class="action-btn" data-action="Novo Pedido">
                                 <svg class="action-icon" fill="currentColor" viewBox="0 0 24 24">
                                     <path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/>
                                 </svg>
                                 <span class="action-text">Novo Pedido</span>
                             </button>
-                            <button class="action-btn outline">
+                            <button class="action-btn outline" data-action="Clientes">
                                 <svg class="action-icon" fill="currentColor" viewBox="0 0 24 24">
                                     <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
                                 </svg>
                                 <span class="action-text">Clientes</span>
                             </button>
-                            <button class="action-btn outline">
+                            <button class="action-btn outline" data-action="Relatórios">
                                 <svg class="action-icon" fill="currentColor" viewBox="0 0 24 24">
                                     <path d="M11 2v20c-5.07-.5-9-4.79-9-10s3.93-9.5 9-10zm2.03 0v8.99H22c-.47-4.74-4.24-8.52-8.97-8.99zm0 11.01V22c4.74-.47 8.5-4.25 8.97-8.99h-8.97z"/>
                                 </svg>
                                 <span class="action-text">Relatórios</span>
                             </button>
-                            <button class="action-btn outline">
+                            <button class="action-btn outline" data-action="Análises">
                                 <svg class="action-icon" fill="currentColor" viewBox="0 0 24 24">
                                     <path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/>
                                 </svg>
@@ -691,41 +224,11 @@
                             <div class="status-badge">Normal</div>
                         </div>
                     </div>
-                </div>
+                </section>
             </div>
         </div>
     </div>
 
-    <script>
-        function showDashboard() {
-            document.getElementById('home-page').classList.add('hidden');
-            document.getElementById('dashboard-page').classList.remove('hidden');
-        }
-
-        // Adicionar interatividade aos botões
-        document.addEventListener('DOMContentLoaded', function() {
-            // Botões de ação
-            const actionButtons = document.querySelectorAll('.action-btn');
-            actionButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    const actionText = this.querySelector('.action-text').textContent;
-                    alert(`Ação "${actionText}" clicada!`);
-                });
-            });
-
-            // Animação dos gráficos
-            const bars = document.querySelectorAll('.bar');
-            bars.forEach((bar, index) => {
-                setTimeout(() => {
-                    bar.style.transform = 'scaleY(0)';
-                    bar.style.transformOrigin = 'bottom';
-                    setTimeout(() => {
-                        bar.style.transition = 'transform 0.5s ease';
-                        bar.style.transform = 'scaleY(1)';
-                    }, 100);
-                }, index * 100);
-            });
-        });
-    </script>
+    <script src="app.js"></script>
 </body>
 </html>
